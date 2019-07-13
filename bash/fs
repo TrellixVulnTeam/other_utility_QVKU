@@ -6,7 +6,8 @@ else
 echo $2
 target="grep -I -s --colour=always --color=always -r -n $1 $2/*"
 fi
-echo "WILL RUN:${target}"
+printf "\e[32mWILL RUN:${target}\e[0m\n"
+printf "\e[32m==================================================\e[0m\n"
 ${target}
 
 

@@ -1,0 +1,8 @@
+#!/bin/sh
+printf "\e[32m_________________start find $1 $2_________________\e[0m\n"
+printf "\e[32m==================================================\e[0m\n"
+if test $# == 2 ;then
+find $1 -type d -path '*/\.*' -prune -o -not -name '.*' -type f -name "*$2*" -print 2>/dev/null
+else
+find . -type d -path '*/\.*' -prune -o -not -name '.*' -type f -name "*$1*" -print 2>/dev/null
+fi
