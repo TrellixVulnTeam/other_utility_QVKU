@@ -1,0 +1,11 @@
+if [ $# = 0 ]; then
+	echo 'tip: `dns g` set to 8.8.8.8'
+else
+	if [ $1 = 'g' ]; then
+		networksetup -setdnsservers Wi-Fi 8.8.8.8
+	else
+		networksetup -setdnsservers Wi-Fi 172.17.0.53
+	fi
+fi
+
+networksetup -getdnsservers Wi-Fi

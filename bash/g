@@ -1,0 +1,3 @@
+#!/bin/sh
+git $@
+has=$(git status | grep "")

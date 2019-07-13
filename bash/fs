@@ -1,0 +1,14 @@
+#!/bin/sh
+dir=$(pwd)/*
+if test $# == 1 ;then
+target="grep -I -s --colour=always --color=always -r -n $@ ${dir}"
+else
+echo $2
+target="grep -I -s --colour=always --color=always -r -n $1 $2/*"
+fi
+echo "WILL RUN:${target}"
+${target}
+
+
+# -I :no bianry file
+# -s :silenc file

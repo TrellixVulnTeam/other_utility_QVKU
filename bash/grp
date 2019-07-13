@@ -1,0 +1,4 @@
+#!/bin/sh
+target="grep -I -s --colour=always --color=always $@"
+echo "WILL RUN:${target}"
+${target}
