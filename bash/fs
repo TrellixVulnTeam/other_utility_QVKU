@@ -1,10 +1,8 @@
 #!/bin/sh
 
-if test $# == 1 ;then
-    if test "$1" == '-h';then
-        echo "fs string [directory]   #find the string in directory"
-        exit 0
-    fi
+if test $# == 1 && test "$1" == '-h';then
+    echo "fs string [directory]   #find the string in directory"
+    exit 0
 fi
 
 dir=$(pwd)/*
