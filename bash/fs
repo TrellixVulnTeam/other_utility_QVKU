@@ -1,4 +1,12 @@
 #!/bin/sh
+
+if test $# == 1 ;then
+    if test "$1" == '-h';then
+        echo "fs string [directory]   #find the string in directory"
+        exit 0
+    fi
+fi
+
 dir=$(pwd)/*
 if test $# == 1 ;then
 target="grep -I -s --colour=always --color=always -r -n $@ ${dir}"
