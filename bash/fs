@@ -5,16 +5,17 @@ if test $# == 1 && test "$1" == '-h';then
     exit 0
 fi
 
-dir=$(pwd)/*
-if test $# == 1 ;then
-target="grep -I -s --colour=always --color=always -r -n $@ ${dir}"
-else
-echo $2
-target="grep -I -s --colour=always --color=always -r -n $1 $2/*"
-fi
-printf "\e[32mWILL RUN:${target}\e[0m\n"
+printf "\e[32mWILL RUN:grep $@ \e[0m\n"
 printf "\e[32m==================================================\e[0m\n"
-${target}
+
+if test $# == 1 ;then
+    set -x
+    grep -I -s --colour=always --color=always -r -n "$1" *
+else
+    set -x
+    grep -I -s --colour=always --color=always -r -n "$@"
+fi
+
 
 
 # -I :no bianry file

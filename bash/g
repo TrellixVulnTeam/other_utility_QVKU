@@ -1,5 +1,5 @@
 #!/bin/sh
-git $@
+git "$@"
 has=$(git status | grep "Your branch is ahead of")
 if test "${has}" ;then
 printf "\n\e[32m_________________\e[0m\e[33mWARNING:\e[0m\e[31;1mHAS UNPUSHED COMMIT\e[0m\e[32m_________________\e[0m\n\n"
