@@ -1,3 +1,4 @@
+import os
 
 def is_ip_str(s):
     import ipaddress
@@ -35,7 +36,10 @@ def remove_ip_in_file(file,ips):
         fd.truncate()
 
 def main():
-    OFFLINE_TXT = ['gz_offline.txt', 'cd_offline.txt', 'bj_offline.txt']
+    WORK_DIR = "E:\\huyadev\\ansible\\"
+    os.chdir(WORK_DIR)
+
+    OFFLINE_TXT = ['unkown_offline.txt']
 
     OLD_TXT = ['prod.ini', 'tx_part_two.ini']
 
