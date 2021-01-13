@@ -39,14 +39,30 @@ def main():
     WORK_DIR = "E:\\huyadev\\ansible\\"
     os.chdir(WORK_DIR)
 
-    OFFLINE_TXT = ['unkown_offline.txt']
+    OFFLINE_TXT = ['offline\\multi_offline.txt']
 
-    OLD_TXT = ['prod.ini', 'tx_part_two.ini']
+    OLD_TXT = get_old_files()
 
     offline_hosts = get_all_offline_host(OFFLINE_TXT)
 
+    print("find ip in", OLD_TXT)
+
     for file in OLD_TXT:
         remove_ip_in_file(file, offline_hosts)
+
+
+def get_ini_under(dir):
+    files = []
+    for f in os.listdir(dir):
+        target = os.path.join(dir,f)
+        if not os.path.isdir(target):
+            if f.endswith(".ini"):
+                files.append(target)
+    return files
+def get_old_files():
+    files = get_ini_under(".")
+    files += get_ini_under("hosts")
+    return files
 
 
 if __name__ == "__main__":
