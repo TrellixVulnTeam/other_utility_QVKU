@@ -1,0 +1,38 @@
+Windows Registry Editor Version 5.00
+
+; Infamous capabilities:
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\MyApp\Capabilities]
+"ApplicationDescription"="MyApp"
+"ApplicationIcon"="D:\\game_data\\gamelive_brower.exe,0"
+"ApplicationName"="MyApp"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\MyApp\Capabilities\FileAssociations]
+".htm"="MyAppURL"
+".html"="MyAppURL"
+".shtml"="MyAppURL"
+".xht"="MyAppURL"
+".xhtml"="MyAppURL"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\MyApp\Capabilities\URLAssociations]
+"ftp"="MyAppURL"
+"http"="MyAppURL"
+"https"="MyAppURL"
+
+; Register to Default Programs
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\RegisteredApplications]
+"MyApp"="Software\\MyApp\\Capabilities"
+
+; MyAppURL HANDLER:
+
+[HKEY_LOCAL_MACHINE\Software\Classes\MyAppURL]
+@="MyApp Document"
+"FriendlyTypeName"="MyApp Document"
+
+[HKEY_LOCAL_MACHINE\Software\Classes\MyAppURL\shell]
+
+[HKEY_LOCAL_MACHINE\Software\Classes\MyAppURL\shell\open]
+
+[HKEY_LOCAL_MACHINE\Software\Classes\MyAppURL\shell\open\command]
+@="\"D:\\game_data\\gamelive_brower.exe\" \"%1\""

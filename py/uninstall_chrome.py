@@ -19,7 +19,7 @@ def get_setup_exe():
     INSTALLER = "Installer"
     EXE = "setup.exe"
     if not os.path.isdir(MAIN_DIR):
-        return None
+        return []
 
     version_subdirs = get_re_subdir(MAIN_DIR, r"[\d]{2}\.[\d]\.[\d]{4}\.[\d]*")
     return [os.path.join(MAIN_DIR,version_subdir,INSTALLER, EXE) for version_subdir in version_subdirs]
