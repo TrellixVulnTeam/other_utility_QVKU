@@ -17,7 +17,7 @@ def get_ip_from_file(filename):
                 ips.append(ip)
     return ips
 
-def get_all_offline_host(filenames):
+def get_all_ip_from_files(filenames):
     hosts = []
     for i in filenames:
         hosts += get_ip_from_file(i)
@@ -38,17 +38,26 @@ def remove_ip_in_file(file,ips):
 def main():
     WORK_DIR = "E:\\huyadev\\ansible\\"
     os.chdir(WORK_DIR)
-
-    OFFLINE_TXT = ['offline\\multi_offline.txt']
-
     OLD_TXT = get_old_files()
 
-    offline_hosts = get_all_offline_host(OFFLINE_TXT)
+    find_duplicated = 0
+    if find_duplicated:
+        find_duplicated_ip(OLD_TXT)
 
-    print("find ip in", OLD_TXT)
+    OFFLINE_TXT = [r"E:\huyadev\ansible\offline\21-5-12_offline.txt"]
+    if len(OFFLINE_TXT):
+        offline_hosts = get_all_ip_from_files(OFFLINE_TXT)
+        print("find ip in", OLD_TXT)
+        for file in OLD_TXT:
+            remove_ip_in_file(file, offline_hosts)
 
-    for file in OLD_TXT:
-        remove_ip_in_file(file, offline_hosts)
+
+def find_duplicated_ip(files):
+    ips = get_all_ip_from_files(files)
+    duplicated_ip = [x for x in ips if ips.count(x) > 1]
+
+    set_duplicated = set(duplicated_ip)
+    print(set_duplicated)
 
 
 def get_ini_under(dir):
