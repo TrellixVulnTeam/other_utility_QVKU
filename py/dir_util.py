@@ -6,7 +6,7 @@ def clean_dir(dir):
     for f in os.listdir(dir):
         target = os.path.join(dir,f)
         if os.path.isdir(target):
-            shutil.rmtree(target)
+            shutil.rmtree(target,ignore_errors=True)
         else:
             os.remove(target)
 
@@ -20,3 +20,5 @@ def change_workdir_to_temp():
         clean_dir(WORK_DIR)
 
     os.chdir(WORK_DIR)
+    return WORK_DIR
+

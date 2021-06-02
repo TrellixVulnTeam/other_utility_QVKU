@@ -1,0 +1,5 @@
+upstream/iupstream.h
+upstream/tsdefine.h
+ycmedia_c.h
+ycmedia_def.h
+ycmedia_i.h

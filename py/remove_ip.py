@@ -30,7 +30,12 @@ def remove_ip_in_file(file,ips):
     with open(file,"r+t") as fd:
         data = fd.read()
         for ip in ips:
-            data = data.replace(ip,'')
+            ip_space = ip + ' '
+            ip_crlf = ip + '\r\n'
+            ip_lf = ip + '\n'
+            data = data.replace(ip_space,'')
+            data = data.replace(ip_crlf,'')
+            data = data.replace(ip_lf,'')
         fd.seek(0)
         fd.write(data)
         fd.truncate()
@@ -44,7 +49,7 @@ def main():
     if find_duplicated:
         find_duplicated_ip(OLD_TXT)
 
-    OFFLINE_TXT = [r"E:\huyadev\ansible\offline\21-5-12_offline.txt"]
+    OFFLINE_TXT = [r"E:\huyadev\ansible\offline\21-5-31_offline.txt"]
     if len(OFFLINE_TXT):
         offline_hosts = get_all_ip_from_files(OFFLINE_TXT)
         print("find ip in", OLD_TXT)
