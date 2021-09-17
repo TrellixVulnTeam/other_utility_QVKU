@@ -45,9 +45,10 @@ def main():
     os.chdir(WORK_DIR)
     OLD_TXT = get_old_files()
 
-    find_duplicated = 0
+    find_duplicated = 1
     if find_duplicated:
-        find_duplicated_ip(OLD_TXT)
+        files = get_ini_under("tmp")
+        find_duplicated_ip(files)
 
     OFFLINE_TXT = [r"E:\huyadev\ansible\offline\21-5-31_offline.txt"]
     if len(OFFLINE_TXT):

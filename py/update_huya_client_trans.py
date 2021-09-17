@@ -92,7 +92,7 @@ def get_work_dir(workspace_index):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="update audio/video push sdk")
+    parser = argparse.ArgumentParser(description="update audio/video push sdk, 1 2 pc")
     parser.add_argument('-w','--workspace',required=True)
     parser.add_argument('url')
     args = parser.parse_args()
